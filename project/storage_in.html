@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="12kK4XfDmUbZauO0EffRA6FYj9m2AwhXIhjQ5B7D">
+    <meta name="api-token" content="sQpdyr7xeHekIaMEWW8YPto10uRHpYgAqu9iTfdGHzw02J0GQJQYTVVV2OXB">
+
+    <title>入倉</title>
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="http://ai.seberon.com/mil_mes_s/favicon.ico">
+</head> -->
+
+<body>
+    <div class="d-flex flex-column m-0 min-h-screen app-container">
+        <!-- banner -->
+        <header class="navbar navbar-expand navbar-dark bg-main px-md-0 py-0 position-fixed fixed-top">
+            <button class="sidebar-toggle btn btn-menu" type="button" data-toggle="collapse" data-target="#sidebar"
+                aria-expanded="true" aria-controls="sidebar">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+            <a href="http://ai.seberon.com/mil_mes_s" class="btn btn-menu home" title="回首頁">
+                <span class="fas fa-fw fa-home"></span>
+            </a>
+            <span class="navbar-brand">入倉</span>
+            <div class="nav-item ml-auto">
+                <div class="row m-0">
+                    <div class="col-auto p-0">
+                        <div class="dropdown" style="display: none;">
+                            <a href="#" class="nav-link dropdown-toggle text-truncate text-white" id="userSettings"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="hi_box"> 您好, </span>
+                                jason</a>
+                            <div class="dropdown-menu dropdown-menu-right" arai-labelledby="userSettings">
+                                <a href="#" class="dropdown-item" data-toggle="modal"
+                                    data-target="#modalPswdChange">修改密碼</a>
+                                <a href="http://ai.seberon.com/mil_mes_s/logout" class="dropdown-item">登出</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto p-0 aboutme_box">
+                        <div class="dropdown">
+                            <a href="#" class="nav-link text-truncate text-white btn btn-default btn-sm px-0 aboutme"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="關於本系統">
+                                <span class="far fa-fw fa-question-circle"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 結構 -->
+        <div class="d-flex container-fluid p-0 app-main">
+            <!-- 左選單 -->
+            <div id="sidebar" class="sidebar sidebar-dark bg-nav collapse position-fixed">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#subBaseMenu" data-toggle="collapse" aria-expanded="false" class="collapsed"
+                            style="display:none;">
+                            <i class="fa fa-fw fa-cube"></i>
+                            基本資料維護
+                        </a>
+                        <ul id="subBaseMenu" class="list-unstyled collapse ">
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/customers">客戶資料維護</a>
+                            </li>
+                            <li>
+                                <a href="#subMaterialMenu" data-toggle="collapse" aria-expanded="false"
+                                    class="collapsed">
+                                    <i class="fa fa-fw fa-eye"></i>
+                                    原料
+                                </a>
+                                <ul id="subMaterialMenu" class="list-unstyled collapse ">
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/materials">原料主檔維護</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/key_material">關鍵原料查詢</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/customer_material">供應商原料維護</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/materials/shareability">共用性維護</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#subCastingMenu" data-toggle="collapse" aria-expanded="false"
+                                    class="collapsed">
+                                    <i class="fa fa-fw fa-cube"></i>
+                                    鑄件資料
+                                </a>
+                                <ul id="subCastingMenu" class="list-unstyled collapse ">
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/casting">鑄件資料維護</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/casting_adjust_price">鑄件價格調整</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/mould/loss/list">模具損耗總計</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/hotline">熱處理曲線主檔</a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/setting">材質單價設定</a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/casting_cost">鑄件材質成本資料庫</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#subPoMenu" data-toggle="collapse" aria-expanded="false" class="collapsed"
+                            style="display:none;">
+                            <i class="fa fa-fw fa-eye"></i>
+                            採購及庫存
+                        </a>
+                        <ul id="subPoMenu" class="list-unstyled collapse ">
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/po">採購單</a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/material_stock">原料庫存</a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/casting_stock">外購鑄件庫存</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#subQcMenu" data-toggle="collapse" aria-expanded="false" class="collapsed"
+                            style="display:none;">
+                            <i class="fa fa-fw fa-eye"></i>
+                            品檢資料維護
+                        </a>
+                        <ul id="subQcMenu" class="list-unstyled collapse ">
+                            <li>
+                                <a href="#subQcCastingMenu" data-toggle="collapse" aria-expanded="false"
+                                    class="collapsed">
+                                    <i class="fa fa-fw fa-gavel"></i>
+                                    鑄件相關檢驗
+                                </a>
+                                <ul id="subQcCastingMenu" class="list-unstyled collapse ">
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/inspection_material">材質檢驗</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/inspection_size_echo">尺吋/超音波檢驗</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#subQcRawMaterialMenu" data-toggle="collapse" aria-expanded="false"
+                                    class="collapsed">
+                                    <i class="fa fa-fw fa-leaf"></i>
+                                    原料相關檢驗
+                                </a>
+                                <ul id="subQcRawMaterialMenu" class="list-unstyled collapse ">
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/qc_resin">樹脂檢驗</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/qc_hardener">硬化劑檢驗</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/qc_silica_sand">矽砂檢驗</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/qc_scrap_iron">廢鐵檢驗</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://ai.seberon.com/mil_mes_s/qc_alloy">合金檢驗</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://ai.seberon.com/mil_mes_s/orders" style="display:none;">
+                            <i class="fas fa-fw fa-file-invoice-dollar"></i>
+                            訂單管理維護
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subMesMenu" data-toggle="collapse" aria-expanded="false" class="collapsed" style="display: none;>
+                <i class=" fas fa-fw fa-cogs"></i>
+                            各工作站戰情室
+                        </a>
+                        <ul id="subMesMenu" class="list-unstyled collapse ">
+
+
+
+                            <li><a href="http://ai.seberon.com/mil_mes_s/process_record">製程紀錄</a></li>
+                            <li><a href="http://ai.seberon.com/mil_mes_s/wip_in">WIP收貨</a></li>
+                            <li><a href="http://ai.seberon.com/mil_mes_s/process_start">開工</a></li>
+                            <li><a href="http://ai.seberon.com/mil_mes_s/process_end">報工</a></li>
+
+
+
+
+
+                            <li>
+
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#subShipMenu" data-toggle="collapse" aria-expanded="false" class="collapsed">
+                            <i class="fa fa-fw fa-boxes"></i>
+                            倉庫管理
+                        </a>
+                        <ul id="subShipMenu" class="list-unstyled collapse ">
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/ship" style="display: none;">出貨檢貨單</a>
+                            </li>
+                            <li>
+                                <a href="./storage_in.html">入庫</a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/storage_out " style="display: none;">出庫</a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/storage_mod_storage"
+                                    style="display: none;">調撥</a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/storage_info_search"
+                                    style="display: none;">倉庫</a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/storage_record_search"
+                                    style="display: none;">倉儲異動紀錄</a>
+                            </li>
+
+
+
+
+                        </ul>
+                    </li>
+                    <!--財務-->
+                    <li>
+                        <a href="#subFinanceMenu" data-toggle="collapse" aria-expanded="false" class="collapsed"
+                            style="display:none;">
+                            <i class="fa fa-fw fa-coins"></i>
+                            財務管理
+                        </a>
+
+                        <ul id="subFinanceMenu" class="list-unstyled collapse ">
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/pay_customer">
+                                    <i class="fas fa-fw fa-dollar-sign"></i>
+                                    應收帳款
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/finance_ap">
+                                    <i class="fas fa-fw fa-hand-holding-usd"></i>
+                                    應付帳款
+                                </a>
+                            </li>
+                            <!-- <li>
+                <a href="http://ai.seberon.com/mil_mes_s/write_off">
+                  <i class="fas fa-fw  fa-newspaper"></i>
+                  銷帳帳款
+                </a>
+              </li> -->
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#subReportMenu" style="display: none;" data-toggle="collapse" aria-expanded="false"
+                            class="collapsed">
+                            <i class="fa fa-fw fa-coins"></i>
+                            報表輸出
+                        </a>
+
+                        <ul id="subReportMenu" class="list-unstyled collapse ">
+
+
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/daily_work">
+                                    每日工作統計表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/mould_produce">
+                                    造模區每日統計表
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/electric_stove">
+                                    電爐區報表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/post_processing">
+                                    後處理工作紀錄表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://ai.seberon.com/mil_mes_s/product_record">
+                                    成品區記錄表
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                </ul>
+            </div>
+
+
+
+
+            <!-- 內容 -->
+            <div class="d-flex flex-column content" data-user="37" id="vueapp">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-4 offset-md-4 col-12">
+                            <div class="card mt-5" style="width: 100%;">
+                                <div class="card-body shadow rounded">
+                                    <form id="computer_form">
+
+
+
+
+                                        <div class="input-group mb-3" id="material_code_container">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">單號</span>
+                                            </div>
+                                            <input type="text" id="material_code" class="form-control">
+                                            <!-- <select class="form-control selectpicker" data-live-search="true"
+                                                name="material_code" id="material_code"></select> -->
+                                        </div>
+
+                                        <!-- <label for="">import { faker } from '@faker-js/faker';</label> -->
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">物料名稱</span>
+                                            </div>
+                                            <input type="text" id="items_name" readonly class="form-control">
+                                            <!-- <select class="form-control" id="mvt_type">
+                                                <option value="1">一般入庫</option>
+                                                <option value="2">盤差入庫</option>
+                                            </select> -->
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">供應商</span>
+                                            </div>
+                                            <input type="text" id="sup_name" readonly class="form-control">
+                                            <!-- <select class="form-control" id="stock_type">
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                            </select> -->
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">訂單數量</span>
+                                            </div>
+                                            <input type="text" id="order_qty" readonly class="form-control">
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">物料單位</span>
+                                            </div>
+                                            <input type="text" id="unit_name" readonly class="form-control">
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">實際數量</span>
+                                            </div>
+                                            <input type="number" max="9999999999" step="0.1" placeholder="必填欄位"
+                                                id='real_qty' min="0" class="form-control">
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">儲位</span>
+                                            </div>
+                                            <select class="form-control" id="mvt_type" placeholder="必填欄位">
+                                                <option value="" class="mb-3 input-group">請選擇</option>
+                                                <option value="1">驗料區</option>
+                                                <option value="2">碼頭</option>
+                                            </select>
+                                        </div>
+
+
+
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">備註</span>
+                                            </div>
+                                            <input type="text" id="note" maxlength="50" class="form-control">
+                                        </div>
+                                        <button type="button" class="btn btn-success btn-lg" id="add_btn"
+                                            style="width: 100%; background-color: #244ed9!important;">入庫</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <link rel="stylesheet"
+                    href="http://ai.seberon.com/mil_mes_s/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css">
+                <script
+                    src="http://ai.seberon.com/mil_mes_s/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"
+                    defer></script>
+                <script src="http://ai.seberon.com/mil_mes_s/node_modules/jquery-blockui/jquery.blockUI.js"
+                    defer></script>
+                <script src="http://ai.seberon.com/mil_mes_s/dist/js/default.min.js" defer></script>
+
+                <script>
+                    'use strict';
+
+                    function load_materila_code() {
+                        $.ajax({
+                            type: 'POST',
+                            url: ' api/v1/query_rfc_materials',
+                            headers: {
+                                Authorization: 'Bearer sQpdyr7xeHekIaMEWW8YPto10uRHpYgAqu9iTfdGHzw02J0GQJQYTVVV2OXB',
+                                'X-CSRF-Token': '12kK4XfDmUbZauO0EffRA6FYj9m2AwhXIhjQ5B7D'
+                            },
+                            success: function (data) {
+                                $('#material_code').empty();
+                                $('#material_code').append('<option value="choose">請選擇</option>');
+                                for (let i = 0; i < data.length; i++) {
+                                    $('#material_code').append(
+                                        `<option custom-unit="${data[i].meins}" value="${data[i].matnr}">${data[i].matnr}-${data[i].maktx}</option>`
+                                    );
+                                }
+                                $('#material_code').selectpicker('refresh');
+                            },
+                            error: function (xhr, status, error) {
+                                alert(error.responseText);
+                            }
+                        });
+                    }
+
+                    // window.addEventListener("load", async () => {
+                    //     load_materila_code();
+
+                    //     $('#material_code').on('change', function () {
+                    //         $('#unit_name').val($('#material_code').find(':selected').attr('custom-unit'));
+                    //     });
+                    //     $('#add_btn').on('click', function () {
+
+                    //         let material_code = $('#material_code').val();
+                    //         let qty = $('#qty').val();
+                    //         let storage_code = $('#storage_code').val();
+                    //         if (material_code != "choose" && qty > 0 && storage_code != "") {
+                    //             $.ajax({
+                    //                 type: 'POST',
+                    //                 url: ' api/v1/in_storage',
+                    //                 data: {
+                    //                     'mvt_type': $('#mvt_type').val(),
+                    //                     'material_code': $('#material_code').val(),
+                    //                     'note': $('#note').val(),
+                    //                     'storage_code': $('#storage_code').val(),
+                    //                     'stock_type': $('#stock_type').val(),
+                    //                     'qty': $('#qty').val(),
+                    //                 },
+                    //                 headers: {
+                    //                     Authorization: 'Bearer sQpdyr7xeHekIaMEWW8YPto10uRHpYgAqu9iTfdGHzw02J0GQJQYTVVV2OXB',
+                    //                     'X-CSRF-Token': '12kK4XfDmUbZauO0EffRA6FYj9m2AwhXIhjQ5B7D'
+                    //                 },
+                    //                 success: function (data) {
+                    //                     alert('成功');
+                    //                     location.reload();
+                    //                 },
+                    //                 error: function (xhr, status, error) {
+                    //                     alert(error.responseText);
+                    //                 }
+                    //             });
+                    //         } else {
+                    //             alert('請填入必填欄位且正確的資料');
+                    //         }
+
+                    //     });
+                    // });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="loader-spinner d-none">Loading...</div>
+    <div class="loader-spinner2 d-none">
+        <i class="fas fa-circle-notch fa-spin"></i>
+    </div>
+
+    <div id="modalPswdChange" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">修改密碼</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="javascript:void(0);">
+                        <div class="row my-2">
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="newpassword">新密碼</span>
+                                    </div>
+                                    <input type="password" name="newpassword" class="form-control" data-value=""
+                                        data-bgredonerror="true" data-validtype="name"
+                                        data-validmsg="新密碼輸入格式不正確,請以英數字和底線組成" placeholder="請輸入新密碼, 並以英數字和底線組成"
+                                        aria-label="請輸入新密碼, 並以英數字和底線組成" aria-describedby="newpassword"
+                                        autocomplete="off" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="confirmpassword">確認密碼</span>
+                                    </div>
+                                    <input type="password" name="confirmpassword" class="form-control" data-value=""
+                                        data-bgredonerror="true" placeholder="請確認密碼" aria-label="請確認密碼"
+                                        aria-describedby="confirmpassword" autocomplete="off" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttonArea row my-1 py-1 justify-end">
+                            <div class="col-auto">
+                                <button type="reset" class="reset btn btn-outline-info btn-sm"
+                                    data-dismiss="modal">取消</button>
+                            </div>
+                            <div class="col-auto">
+                                <button id="confirmBtn" type="button" class="btn btn-outline-warning btn-sm">送出</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="logout-form" action="http://ai.seberon.com/mil_mes_s/logout" method="POST" class="d-none">
+        <input type="hidden" name="_token" value="12kK4XfDmUbZauO0EffRA6FYj9m2AwhXIhjQ5B7D">
+    </form>
+    <!-- <script>
+        import { faker } from 'https://cdn.skypack.dev/@faker-js/faker';
+
+        const randomName = faker.name.findName(); // Willie Bahringer
+        const randomEmail = faker.internet.email(); // Tomasa_Ferry14@hotmail.com
+        const randomPhoneNumber = faker.phone.phoneNumber(); // 938-672-1359 x418
+    </script> -->
+    <script>
+        let json_data = {
+            'M20220423003': {
+                "items_name": '口罩',
+                "sup_name": '台灣康匠製造股份有限公司',
+                "order_qty": '1500',
+                "unit_name": '式',
+                "real_qty": '1500'
+            },
+            'M20220507001': {
+                "items_name": '口罩',
+                "sup_name": '舜堡興業股份有限公司',
+                "order_qty": '500',
+                "unit_name": '式',
+                "real_qty": '500'
+            },
+            'G20220425009': {
+                "items_name": '手套',
+                "sup_name": '同安工業股份有限公司',
+                "order_qty": '200',
+                "unit_name": '支',
+                "real_qty": '200'
+            },
+            'G20220426003': {
+                "items_name": '手套',
+                "sup_name": '聯盛醫療衛材股份有限公司',
+                "order_qty": '200',
+                "unit_name": '支',
+                "real_qty": '200'
+            },
+            'V20220503003': {
+                "items_name": '呼吸器',
+                "sup_name": '金長榮國際實業股份有限公司',
+                "order_qty": '50',
+                "unit_name": '式',
+                "real_qty": '50'
+            },
+            'V20220428005': {
+                "items_name": '呼吸器',
+                "sup_name": '杏昌生技股份有限公司',
+                "order_qty": '20',
+                "unit_name": '式',
+                "real_qty": '20'
+            },
+            'H20220429007': {
+                "items_name": '乾洗手',
+                "sup_name": '健亞生物科技股份有限公司',
+                "order_qty": '70',
+                "unit_name": '瓶',
+                "real_qty": '70'
+            },
+            'A20220515004': {
+                "items_name": '清潔用酒精',
+                "sup_name": '邦特生物科技股份有限公司',
+                "order_qty": '70',
+                "unit_name": '瓶',
+                "real_qty": '70'
+            },
+            'A20220501006': {
+                "items_name": '清潔用酒精',
+                "sup_name": '邦特生物科技股份有限公司',
+                "order_qty": '30',
+                "unit_name": '瓶',
+                "real_qty": '30'
+            },
+            'I20220502006': {
+                "items_name": '注射液',
+                "sup_name": '怡安醫療器材股份有限公司',
+                "order_qty": '50',
+                "unit_name": '瓶',
+                "real_qty": '50'
+            },
+            'I20220503005': {
+                "items_name": '注射液',
+                "sup_name": '怡安醫療器材股份有限公司',
+                "order_qty": '30',
+                "unit_name": '瓶',
+                "real_qty": '30'
+            }
+        }
+
+
+
+        'use strict';
+        window.addEventListener("load", async () => {
+
+            // $('#material_code').on('keypress', function () {
+            //     if ($('#material_code').val == 123) {
+            //         $('#unit_name').val(json_data['123'][3]);
+            //     }
+            // });
+            $('#add_btn').on('click', function () {
+                alert('物件已入倉');
+            });
+
+            $('#material_code').on('keypress', function (e) {
+                switch (document.getElementById("material_code").value) {
+                    default:
+                        $('#items_name').val(json_data[document.getElementById("material_code").value]['items_name']);
+                        $('#sup_name').val(json_data[document.getElementById("material_code").value]['sup_name']);
+                        $('#order_qty').val(json_data[document.getElementById("material_code").value]['order_qty']);
+                        $('#unit_name').val(json_data[document.getElementById("material_code").value]['unit_name']);
+                        $('#real_qty').val(json_data[document.getElementById("material_code").value]['real_qty']);
+                        
+
+                        break;
+
+                }
+                
+                // if (document.getElementById("material_code").value == '123') {
+                //     // alert('You pressed enter!');
+
+                //     $('#items_name').val(json_data['123']['items_name']);
+                //     $('#sup_name').val(json_data['123']['sup_name']);
+                //     $('#order_qty').val(json_data['123']['order_qty']);
+                //     $('#unit_name').val(json_data['123']['unit_name']);
+                // }
+            });
+            // $("#material_code").keypress(function () {
+            //     $('#unit_name').val(json_data['123'][3]);
+            // })
+
+
+            $('div#modalPswdChange').on('shown.bs.modal', (event) => {
+                $('div#modalPswdChange form input[name="newpassword"]').trigger('focus');
+            });
+
+
+            $('div#modalPswdChange').on('hide.bs.modal', (event) => {
+                initFormInputItem($('div#modalPswdChange form'));
+            });
+
+
+            $(document).on('click', 'div#modalPswdChange form button#confirmBtn', async (event) => {
+                const
+                    form = $(event.target).closest('form'),
+                    _this = $(event.target),
+                    newPswd = form.find('input[name="newpassword"]'),
+                    confirmNewPswd = form.find('input[name="confirmpassword"]');
+
+                if (formValidation(form) === false) {
+                    return false;
+                }
+
+                if (newPswd.val() !== confirmNewPswd.val()) {
+                    alert('確認密碼輸入的與新密碼不一樣!');
+                }
+
+                if (confirm('確認要修改密碼嗎？')) {
+                    if (await updateData(form, `http://ai.seberon.com/mil_mes_s/api/v1/user/changepswd`)) {
+                        alert('成功修改密碼!');
+                        $('div#modalPswdChange').modal('hide');
+                        return;
+                    }
+                    alert('修改密碼失敗!');
+                    return;
+                }
+            });
+
+
+            document.querySelector('a.aboutme').addEventListener('click', (event) => {
+                alertify.dialog('alert').set({
+                    transition: 'slide',
+                    movable: false,
+                    message: `
+        <div class="container-fluid d-table">
+          <div class="row d-table-row">
+            <div class="col-auto text-right text-nowrap d-table-cell">
+              <span>Version</span>
+            </div>
+            <div class="col text-left text-nowrap d-table-cell">
+              <span></span>
+            </div>
+          </div>
+          <div class="row d-table-row">
+            <div class="col-auto text-right text-nowrap d-table-cell">
+              <span>Release Notes</span>
+            </div>
+            <div class="col text-left text-nowrap d-table-cell">
+              <samp>
+                <ol>
+                  <li>新增、修改、查詢、作廢系統操作者</li>
+                  <li>系統各基本檔維護</li>
+                  <li>新增、修改、查詢、作廢採購單</li>
+                  <li>新增、修改、查詢、作廢訂單</li>
+                </ol>
+              </samp>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col text-center">
+            <span>Copyright &copy; 2021 Seberon Co., Ltd. All rights reserved.</span>
+          </div>
+        </div>
+        `
+                }).setHeader(`<h3>關於本系統</h3>`).set('label', '瞭解').show();
+            });
+        });
+    </script>
+
+</body>
+
+<!-- Styles -->
+<link rel="stylesheet" href="http://ai.seberon.com/mil_mes_s/dist/style/pageDefault.min.css">
+<link rel="stylesheet" href="http://ai.seberon.com/mil_mes_s/node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+    href="http://ai.seberon.com/mil_mes_s/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="./backend.css">
+<link rel="stylesheet" href="http://ai.seberon.com/mil_mes_s/css/app.css">
+<link rel="stylesheet" href="http://ai.seberon.com/mil_mes_s/node_modules/alertifyjs/build/css/alertify.min.css">
+<link rel="stylesheet"
+    href="http://ai.seberon.com/mil_mes_s/node_modules/alertifyjs/build/css/themes/bootstrap.min.css">
+
+<!-- Scripts -->
+<script src="http://ai.seberon.com/mil_mes_s/js/app.js"></script>
+
+<script src="http://ai.seberon.com/mil_mes_s/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="http://ai.seberon.com/mil_mes_s/node_modules/moment/min/moment-with-locales.min.js"></script>
+<script
+    src="http://ai.seberon.com/mil_mes_s/node_modules/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
+<script src="http://ai.seberon.com/mil_mes_s/node_modules/bignumber.js/bignumber.js"></script>
+<script src="http://ai.seberon.com/mil_mes_s/node_modules/lodash/lodash.min.js"></script>
+<script src="http://ai.seberon.com/mil_mes_s/node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script src="http://ai.seberon.com/mil_mes_s/node_modules/alertifyjs/build/alertify.min.js"></script>
+
+</html>
